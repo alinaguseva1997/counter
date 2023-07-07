@@ -1,0 +1,47 @@
+.settingsWrapper {
+    max-width: 350px;
+    border: 3px solid aqua;
+    border-radius: 3%;
+    padding: 10px;
+}
+
+.settings {
+    height: 110px;
+    border-radius: 3%;
+    border: 3px solid aqua;
+    margin-bottom: 20px;
+    font-size: 70px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.maxValue {
+    display: flex;
+    margin-bottom: 30px;
+    color: aqua;
+}
+
+.minValue {
+    display: flex;
+    color: aqua;
+}
+
+.spanSetting {
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+.inputSetting {
+    text-align: center;
+    border-radius: 5%;
+    border-color: aqua;
+}
+
+.buttonSetWrap {
+    display: flex;
+    justify-content: center;
+    border-radius: 3%;
+    border: 1px solid aqua;
+    padding: 20px 10px;
+}
+

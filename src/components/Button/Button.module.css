@@ -1,0 +1,18 @@
+.button {
+    padding: 19px 35px;
+    font-weight: bold;
+    background-color: aqua;
+    border-radius: 5%;
+    border-style: none;
+    font-size: xx-large;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.opacity {
+    opacity: 0.5;
+}
+
+.button:active {
+    opacity: 0.5;
+}

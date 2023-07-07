@@ -1,0 +1,20 @@
+.display {
+    text-align: center;
+    height: 110px;
+    border-radius: 3%;
+    border: 3px solid aqua;
+    margin-bottom: 20px;
+    font-size: 70px;
+    font-weight: bold;
+    color: aqua;
+}
+
+.displayText {
+    height: 70px;
+    padding-top: 50px;
+    font-size: 23px;
+}
+
+.displayRed {
+    color: red;
+}
