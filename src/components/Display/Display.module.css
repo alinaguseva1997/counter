@@ -18,3 +18,15 @@
 .displayRed {
     color: red;
 }
+
+.incorrectValueStyle {
+    color: red;
+    height: 70px;
+    padding-top: 40px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 3%;
+    border: 3px solid aqua;
+    margin-bottom: 20px;
+}

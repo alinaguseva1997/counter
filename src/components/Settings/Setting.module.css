@@ -37,6 +37,13 @@
     border-color: aqua;
 }
 
+.inputError {
+    text-align: center;
+    border-radius: 5%;
+    border-color: red;
+    background-color: #ffa1ae;
+}
+
 .buttonSetWrap {
     display: flex;
     justify-content: center;
