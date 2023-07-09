@@ -20,8 +20,6 @@ function App() {
     const resetCounterDisplay = () => {
          setDisplayValue(startValue)
     }
-
-
     const addCounterInputCallBack = (name: string) => {
          name === 'inc' ? addCounterDisplay() : resetCounterDisplay()
         if (name === 'set') {
