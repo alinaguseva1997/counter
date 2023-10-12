@@ -4,7 +4,6 @@ import s from "./Display.module.css";
 type DisplayPropsType = {
     displayValue: number
     maxValue: number
-    startValue: number
     incorrectValue: boolean
     enterValue: boolean
 }

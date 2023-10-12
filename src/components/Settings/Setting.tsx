@@ -1,28 +1,29 @@
 import React, {ChangeEvent} from 'react';
 import s from './Setting.module.css'
 import {Button} from "../Button/Button";
+import {useDispatch} from "react-redux";
+import {setMaxValueAC, setNewIsValueChangedAC, setStartValueAC} from "../../redux/reducer";
 
 export type SettingsPropsType = {
-    addCounterInputCallBack: (name: string) => void
-    setMaxValue: (value: number) => void
-    setStartValue: (value: number) => void
+    addNewSettingCallback: (name: string) => void
     maxValue: number
     startValue: number
     displayValue: number,
-    setIsValuesChanged:(newStatus:boolean) => void
     incorrectValue: boolean
 }
 
 export const Setting = (props: SettingsPropsType) => {
 
+    const dispatch = useDispatch()
+
     const onChangeMaxValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        props.setMaxValue(+e.currentTarget.value)
-        props.setIsValuesChanged(true)
+        dispatch(setMaxValueAC(+e.currentTarget.value))
+        dispatch(setNewIsValueChangedAC(true))
     }
 
     const onChangeMinValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        props.setStartValue(+e.currentTarget.value)
-        props.setIsValuesChanged(true)
+        dispatch(setStartValueAC(+e.currentTarget.value))
+        dispatch(setNewIsValueChangedAC(true))
     }
 
     const disabledButtonSet = props.maxValue === 0 && props.startValue === 0 || props.maxValue < 0 || props.startValue < 0 || props.maxValue === props.startValue || props.startValue > props.maxValue || props.displayValue === props.maxValue
@@ -42,7 +43,7 @@ export const Setting = (props: SettingsPropsType) => {
                 </div>
             </div>
             <div className={s.buttonSetWrap}>
-                <Button name={'set'} addCounterInputCallBack={props.addCounterInputCallBack} disabled={disabledButtonSet}/>
+                <Button name={'set'} callBack={props.addNewSettingCallback} disabled={disabledButtonSet}/>
             </div>
         </div>
     );

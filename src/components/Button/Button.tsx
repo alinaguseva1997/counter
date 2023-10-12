@@ -3,14 +3,14 @@ import s from './Button.module.css'
 
 type ButtonPropsType = {
     name: string
-    addCounterInputCallBack: (name: string) => void
+    callBack: (name: string) => void
     disabled: boolean
 }
 
 export const Button = (props: ButtonPropsType) => {
 
     const onClickHandler = (name: string) => {
-        props.addCounterInputCallBack(name)
+        props.callBack(name)
     }
 
     return (
