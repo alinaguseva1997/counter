@@ -19,6 +19,7 @@ function App() {
     const isValuesChanged = useSelector<storeType, boolean>(state => state.isValuesChanged)
     const dispatch = useDispatch()
     console.log(displayValue)
+    console.log(startValue)
 
     // let startValueAsString = localStorage.getItem('startValue')
     // let maxValueAsString = localStorage.getItem('maxValue')
