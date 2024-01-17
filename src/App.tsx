@@ -8,26 +8,19 @@ import {displayValueSettingAC,
     resetCounterDisplayAC,
     setNewIsValueChangedAC,
 } from "./redux/reducer";
-import {storeType} from "./redux/store";
+import {AppStateType} from "./redux/store";
 
 
 function App() {
 
-    const displayValue = useSelector<storeType, number>(state => state.displayValue)
-    const startValue = useSelector<storeType, number>(state => state.startValue)
-    const maxValue = useSelector<storeType, number>(state => state.maxValue)
-    const isValuesChanged = useSelector<storeType, boolean>(state => state.isValuesChanged)
+    const displayValue = useSelector<AppStateType, number>(state => state.counter.displayValue)
+    const startValue = useSelector<AppStateType, number>(state => state.counter.startValue)
+    const maxValue = useSelector<AppStateType, number>(state => state.counter.maxValue)
+    const isValuesChanged = useSelector<AppStateType, boolean>(state => state.counter.isValuesChanged)
     const dispatch = useDispatch()
-    console.log(displayValue)
-    console.log(startValue)
 
     // let startValueAsString = localStorage.getItem('startValue')
     // let maxValueAsString = localStorage.getItem('maxValue')
-
-    // const [displayValue, setDisplayValue] = useState<number>(0)/*Number(startValueAsString)||0*/
-    // const [maxValue, setMaxValue] = useState<number>(5) /*Number(maxValueAsString)||0*/
-    // const [startValue, setStartValue] = useState<number>(0) /*Number(startValueAsString)||0*/
-    // const [isValuesChanged,setIsValuesChanged]=useState(false)
 
     const addCounterDisplay = () => {
         dispatch(increaseCounterDisplayAC())

@@ -1,11 +1,12 @@
-import {legacy_createStore} from "redux";
+import {combineReducers, createStore} from "redux";
 import {Reducer} from "./reducer";
 
-export type storeType = ReturnType<typeof Reducer>
+const rootReducer = combineReducers({
+    counter: Reducer
+})
 
-export const store = legacy_createStore(Reducer)
+export const store = createStore(rootReducer)
 
+export type AppStateType = ReturnType<typeof rootReducer>
 // @ts-ignore
 window.store = store;
-
-console.log(store)

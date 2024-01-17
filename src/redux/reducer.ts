@@ -1,24 +1,11 @@
+export type ActionType = ReturnType<typeof increaseCounterDisplayAC>
+    | ReturnType<typeof resetCounterDisplayAC>
+    | ReturnType<typeof setStartValueAC>
+    | ReturnType<typeof setMaxValueAC>
+    | ReturnType<typeof setNewIsValueChangedAC>
+    | ReturnType<typeof displayValueSettingAC>
 
-export type ActionType = addCounterDisplayACType
-    | resetCounterDisplayACType
-    | setStartValueACType
-    | setMaxValueACType
-    | setNewIsValueChangedACType
-    |displayValueSettingACType
-
-export type addCounterDisplayACType = ReturnType<typeof increaseCounterDisplayAC>
-export type resetCounterDisplayACType = ReturnType<typeof resetCounterDisplayAC>
-export type setStartValueACType = ReturnType<typeof setStartValueAC>
-export type setMaxValueACType = ReturnType<typeof setMaxValueAC>
-export type setNewIsValueChangedACType = ReturnType<typeof setNewIsValueChangedAC>
-export type displayValueSettingACType = ReturnType<typeof displayValueSettingAC>
-
-export type StateType = {
-    displayValue: number,
-    startValue: number,
-    maxValue: number,
-    isValuesChanged: boolean
-}
+type InitialStateType = typeof initialState
 
 const initialState  = {
     displayValue: 0,
@@ -27,7 +14,7 @@ const initialState  = {
     isValuesChanged: false
 }
 
-export const Reducer = (state: StateType = initialState, action: ActionType) => {
+export const Reducer = (state: InitialStateType = initialState, action: ActionType): InitialStateType => {
     switch(action.type) {
         case 'ADD-COUNTER-DISPLAY': {
             return {...state, displayValue: state.displayValue + 1}
@@ -45,7 +32,7 @@ export const Reducer = (state: StateType = initialState, action: ActionType) => 
             return {...state, isValuesChanged: state.isValuesChanged = action.newStatus}
         }
         case 'DISPLAY-VALUE-SETTING': {
-            return {...state, displayValue: state. startValue}
+            return {...state, displayValue: state.startValue}
         }
         default: {
             return state;
@@ -53,36 +40,9 @@ export const Reducer = (state: StateType = initialState, action: ActionType) => 
     }
 }
 
-export const increaseCounterDisplayAC = () => {
-    return {
-        type: 'ADD-COUNTER-DISPLAY' as const
-    }
-}
-export const resetCounterDisplayAC = () => {
-    return {
-        type: 'RESET-COUNTER-DISPLAY' as const
-    }
-}
-export const setStartValueAC = (value: number) => {
-    return {
-        type: 'SET-START-VALUE' as const,
-        value
-    }
-}
-export const setMaxValueAC = (value: number) => {
-    return {
-        type: 'SET-MAX-VALUE' as const,
-        value
-    }
-}
-export const setNewIsValueChangedAC = (newStatus: boolean) => {
-    return {
-        type: 'SET-NEW-IS-VALUE-CHANGED' as const,
-        newStatus
-    }
-}
-export const displayValueSettingAC = () => {
-    return {
-        type: 'DISPLAY-VALUE-SETTING' as const,
-    }
-}
+export const increaseCounterDisplayAC = () => ({type: 'ADD-COUNTER-DISPLAY' as const})
+export const resetCounterDisplayAC = () => ({type: 'RESET-COUNTER-DISPLAY' as const})
+export const setStartValueAC = (value: number) => ({type: 'SET-START-VALUE', value} as const)
+export const setMaxValueAC = (value: number) => ({type: 'SET-MAX-VALUE',value} as const)
+export const setNewIsValueChangedAC = (newStatus: boolean) => ({type: 'SET-NEW-IS-VALUE-CHANGED',newStatus} as const)
+export const displayValueSettingAC = () => ({type: 'DISPLAY-VALUE-SETTING' as const})
