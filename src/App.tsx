@@ -8,15 +8,20 @@ import {displayValueSettingAC,
     resetCounterDisplayAC,
     setNewIsValueChangedAC,
 } from "./redux/reducer";
-import {AppStateType} from "./redux/store";
+import {
+    displayValueSelector,
+    isValuesChangedSelector,
+    maxValueSelector,
+    startValueSelector
+} from "./redux/app-selectors";
 
 
 function App() {
 
-    const displayValue = useSelector<AppStateType, number>(state => state.counter.displayValue)
-    const startValue = useSelector<AppStateType, number>(state => state.counter.startValue)
-    const maxValue = useSelector<AppStateType, number>(state => state.counter.maxValue)
-    const isValuesChanged = useSelector<AppStateType, boolean>(state => state.counter.isValuesChanged)
+    const displayValue = useSelector(displayValueSelector)
+    const startValue = useSelector(startValueSelector)
+    const maxValue = useSelector(maxValueSelector)
+    const isValuesChanged = useSelector(isValuesChangedSelector)
     const dispatch = useDispatch()
 
     // let startValueAsString = localStorage.getItem('startValue')
